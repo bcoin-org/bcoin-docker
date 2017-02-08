@@ -1,6 +1,9 @@
 FROM alpine:edge
 MAINTAINER Steven Bower <steven@purse.io>
 
+# Cache buster
+ADD http://www.random.org/strings/?num=10&len=8&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new uuid
+
 # Build deps
 RUN apk update && \
     apk upgrade
@@ -10,6 +13,7 @@ ENV BCOIN_BRANCH master
 ENV BCOIN_REPO https://github.com/bcoin-org/bcoin.git
 
 RUN mkdir -p /code/node_modules/bcoin /data
+
 RUN git clone --branch $BCOIN_BRANCH $BCOIN_REPO /code/node_modules/bcoin
 
 # Installation

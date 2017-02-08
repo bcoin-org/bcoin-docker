@@ -19,7 +19,7 @@ Quick run, node only:
 `docker-compose up -d bcoin`
 
 Update to latest bcoin & alpine version:
-`docker-compose build --no-cache --pull bcoin`
+`docker-compose build --pull bcoin`
 
 HTTPS
 ----
