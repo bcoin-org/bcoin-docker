@@ -40,7 +40,6 @@ services:
 networks:
   bcoin:
     external:
-      # docker network create bcoin
       name: "bcoin"
   nginx-proxy:
     external:
