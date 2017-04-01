@@ -1,6 +1,7 @@
 FROM alpine:3.5
 MAINTAINER Steven Bower <steven@purse.io>
 
+# Cache buster
 ADD http://www.random.org/strings/?num=10&len=8&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new uuid
 
 ENV BCOIN_BRANCH=master \
