@@ -1,28 +1,18 @@
-FROM alpine:edge
+FROM alpine:3.5
 MAINTAINER Steven Bower <steven@purse.io>
 
 # Cache buster
 ADD http://www.random.org/strings/?num=10&len=8&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new uuid
 
-# Build deps
-RUN apk update && \
-    apk upgrade
-RUN apk add nodejs bash unrar git python build-base make
+ENV BCOIN_BRANCH=master \
+    BCOIN_REPO=https://github.com/bcoin-org/bcoin.git
 
-ENV BCOIN_BRANCH master
-ENV BCOIN_REPO https://github.com/bcoin-org/bcoin.git
-
-RUN mkdir -p /code/node_modules/bcoin /data
-
-RUN git clone --branch $BCOIN_BRANCH $BCOIN_REPO /code/node_modules/bcoin
-
-# Installation
-WORKDIR /code/node_modules/bcoin
-RUN npm install --production
-
-# Cleanup
-RUN npm uninstall node-gyp
-RUN apk del unrar python build-base make && \
-    rm /var/cache/apk/*
+RUN apk --no-cache add bash build-base git make nodejs python unrar \
+    && mkdir -p /code/node_modules/bcoin /data \
+    && git clone --branch $BCOIN_BRANCH $BCOIN_REPO /code/node_modules/bcoin \
+    && cd /code/node_modules/bcoin \
+    && npm install --production \
+    && npm uninstall node-gyp \
+    && apk del build-base make python unrar
 
 CMD ["node", "/code/node_modules/bcoin/bin/node"]
