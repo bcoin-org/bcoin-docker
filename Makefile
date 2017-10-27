@@ -29,4 +29,4 @@ arch: SYSTEM=arch
 arch: build
 
 
-.PHONY: slim all build
+.PHONY: all build latest slim arch
