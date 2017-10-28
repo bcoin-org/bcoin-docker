@@ -10,7 +10,7 @@ RUN pacman -Syu --noconfirm nodejs npm unrar git python2 base-devel \
   && mkdir -p $BCOIN_DIR /data \
   && git clone $BCOIN_REPO $BCOIN_DIR \
   && cd $BCOIN_DIR \
-  && git checkout tags/$BCOIN_VERSION \
+  && git checkout $BCOIN_VERSION \
   && npm install --production \
   && npm uninstall node-gyp \
   && pacman -Rns --noconfirm unrar python2 git \

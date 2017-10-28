@@ -11,7 +11,7 @@ RUN apt-get update \
   && mkdir -p $BCOIN_DIR /data \
   && git clone $BCOIN_REPO $BCOIN_DIR \
   && cd $BCOIN_DIR \
-  && git checkout tags/$BCOIN_VERSION \
+  && git checkout $BCOIN_VERSION \
   && npm install --production \
   && npm uninstall node-gyp \
   && apt-get remove -y build-essential make python git \
