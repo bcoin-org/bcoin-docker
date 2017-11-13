@@ -21,7 +21,7 @@ services:
       - "bcoin"
       - "nginx-proxy"
     volumes:
-      - ~/.bcoin/container:/data
+      - ~/.bcoin:/data
       - ${PWD}/secrets/bcoin.conf:/data/bcoin.conf
 
   nginx_proxy:
