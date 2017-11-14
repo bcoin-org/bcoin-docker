@@ -4,7 +4,7 @@ Bcoin on Docker
 Start up a bcoin node quickly using Docker.
 Pulls latest bcoin version from github and starts full node.
 
-By default, persists data in user home directory at `~/.bcoin/container`.
+By default, persists data in user home directory at `~/.bcoin`.
 
 How To Use
 ----
