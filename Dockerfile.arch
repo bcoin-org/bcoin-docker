@@ -1,0 +1,21 @@
+FROM nfnty/arch-mini:latest
+MAINTAINER Steven Bower <steven@purse.io>
+
+ARG BCOIN_VERSION
+ENV BCOIN_VERSION=${BCOIN_VERSION} \
+    BCOIN_REPO=https://github.com/bcoin-org/bcoin.git \
+    BCOIN_DIR=/code/bcoin
+
+RUN pacman -Syu --noconfirm nodejs npm unrar git python2 base-devel \
+  && mkdir -p $BCOIN_DIR /data \
+  && git clone $BCOIN_REPO $BCOIN_DIR \
+  && cd $BCOIN_DIR \
+  && git checkout $BCOIN_VERSION \
+  && npm install --production \
+  && npm uninstall node-gyp \
+  && pacman -Rns --noconfirm unrar python2 git \
+  && rm /var/cache/pacman/pkg/*
+
+WORKDIR $BCOIN_DIR
+
+CMD ["node", "/code/bcoin/bin/node"]

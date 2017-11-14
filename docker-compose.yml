@@ -2,7 +2,7 @@ version: '2'
 
 services:
   bcoin:
-    build: .
+    image: purse/bcoin
     container_name: bcoin
     restart: unless-stopped
     ports:
@@ -22,7 +22,7 @@ services:
       - "nginx-proxy"
     volumes:
       - ~/.bcoin:/data
-      - ./secrets/bcoin.conf:/data/bcoin.conf
+      - ${PWD}/secrets/bcoin.conf:/data/bcoin.conf
 
   nginx_proxy:
     image: jwilder/nginx-proxy
