@@ -19,3 +19,11 @@ services:
     networks:
       - "bcoin"
       - "nginx-proxy"
+
+networks:
+  bcoin:
+    external:
+      name: "bcoin"
+  nginx-proxy:
+    external:
+      name: "nginx-proxy"
