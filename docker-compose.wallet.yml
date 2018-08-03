@@ -7,7 +7,7 @@
 version: '2'
 services:
   bcoin-wallet:
-    image: smebberson/alpine-nginx
+    image: nginx:stable-alpine
     restart: unless-stopped
     environment:
       VIRTUAL_HOST: bwallet.yourdomain.org
