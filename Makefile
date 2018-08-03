@@ -1,5 +1,5 @@
 SYSTEM?=slim
-VERSION?=v1.0.0-beta.15
+VERSION?=v1.0.2
 
 DOCKERFILE?=Dockerfile.$(SYSTEM)
 DOCKER_REPO?=purse/bcoin
