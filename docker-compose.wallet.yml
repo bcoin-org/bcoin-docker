@@ -11,7 +11,6 @@ services:
     restart: unless-stopped
     environment:
       VIRTUAL_HOST: bwallet.yourdomain.org
-      CERT_NAME: purse.io
     volumes:
       - ./wallet-proxy.conf:/etc/nginx/conf.d/default.conf:ro
     expose:
