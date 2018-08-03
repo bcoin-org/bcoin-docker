@@ -23,7 +23,7 @@ services:
       - "bcoin"
       - "nginx-proxy"
     volumes:
-      - ~/.bcoin:/data
+      - ~/.bcoin:/root/.bcoin
       - ${PWD}/secrets/bcoin.conf:/data/bcoin.conf
       - ${PWD}/secrets/wallet.conf:/data/wallet.conf
 
