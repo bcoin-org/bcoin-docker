@@ -56,12 +56,11 @@ See `docker-compose.wallet.yml`. (Not required to actually use wallet API)
 
 # Building
 
-By default, docker-compose will use image pulled from `purse/bcoin:latest`, but you can build
-one yourself.
+By default, docker-compose will use image pulled from `purse/bcoin:latest`,
+but you can build one yourself.
 
-There are two Dockerfiles available: `slim` and `arch`, currently `slim` will be used for latest by default.
-Latest is hard coded into Makefile and will need updates overtime, but you can manually pass VERSION variable
-and override current version.
+Latest is hard coded into Makefile and will need updates overtime,
+but you can manually pass VERSION variable to override current version.
 
 ## Examples
 Build v1.0.2:
