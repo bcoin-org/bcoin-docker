@@ -1,17 +1,13 @@
-SYSTEM?=slim
 VERSION?=v1.0.2
 
-DOCKERFILE?=Dockerfile.$(SYSTEM)
 DOCKER_REPO?=purse/bcoin
-DOCKER_TAG?=$(VERSION)-$(SYSTEM)
-DOCKER_FULLTAG=$(DOCKER_REPO):$(DOCKER_TAG)
+DOCKER_FULLTAG=$(DOCKER_REPO):$(VERSION)
 
 BCOIN_CHECKOUT?=tags/$(VERSION)
 
 build:
 	@echo "building: $(DOCKER_FULLTAG)"
 	@docker build -t $(DOCKER_FULLTAG) \
-		-f $(DOCKERFILE) \
 		--build-arg BCOIN_VERSION=$(BCOIN_CHECKOUT) \
 		.
 
