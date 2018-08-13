@@ -12,23 +12,12 @@ build:
 		.
 
 # Current option for latest:
-latest: SYSTEM=slim
 latest: build
 	@echo "Tagging latest"
 	@docker tag $(DOCKER_FULLTAG) $(DOCKER_REPO):latest
-
-
-all: slim arch
-
-slim: SYSTEM=slim
-slim: build
-
-arch: SYSTEM=arch
-arch: build
 
 master: DOCKER_TAG=master
 master: BCOIN_CHECKOUT=master
 master: build
 
-
-.PHONY: all build latest slim arch
+.PHONY: build latest

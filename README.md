@@ -64,12 +64,8 @@ Latest is hard coded into Makefile and will need updates overtime, but you can m
 and override current version.
 
 ## Examples
-Build v1.0.2 on slim:
+Build v1.0.2:
   - `make` - Same as build
   - `make build` - Currently hard coded latest.
   - `make latest` - this will tag image as latest.
   - `VERSION=v1.0.2 make build`
-
-Build v1.0.2 on arch: `VERSION=v1.0.0 make arch`.  
-Build v1.0.2 on slim with different docker repository:
-  `DOCKER_REPO=nchkuaselidze/bcoin VERSION=v1.0.2 make`
