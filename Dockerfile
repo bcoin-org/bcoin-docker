@@ -16,7 +16,7 @@ RUN git clone $BCOIN_REPO /code && \
 FROM base AS build
 
 # Install build dependencies
-RUN apk add --no-cache g++ gcc make python2
+RUN apk add --no-cache g++ gcc make python3
 RUN npm install --production
 
 # Copy built files, but don't include build deps
