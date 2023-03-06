@@ -42,8 +42,6 @@ services:
 
 networks:
   bcoin:
-    external:
-      name: "bcoin"
+    external: true
   nginx-proxy:
-    external:
-      name: "nginx-proxy"
+    external: true
